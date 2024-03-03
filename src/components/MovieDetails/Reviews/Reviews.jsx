@@ -35,7 +35,7 @@ const Reviews = () => {
           return (
             <li key={id} className={styles.ListItem}>
               <p className={styles.Author}>{`Author: ${author}`}</p>
-              <p className={styles.Content}>{content}</p>
+              <p>{content}</p>
             </li>
           );
         })}

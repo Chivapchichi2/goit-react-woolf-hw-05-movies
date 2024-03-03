@@ -1,8 +1,6 @@
 import { useState, useEffect } from 'react';
 import {
   NavLink,
-  Route,
-  Routes,
   useParams,
   useLocation,
   useNavigate,
@@ -10,11 +8,9 @@ import {
 } from 'react-router-dom';
 import api from '../services/moviesApi';
 import Button from '../components/Button';
-import Cast from '../components/MovieDetails/Cast';
 import MovieDetails from '../components/MovieDetails';
 import Loader from '../components/Loader';
 import Notification from '../components/Notification';
-import Reviews from '../components/MovieDetails/Reviews';
 import styles from './MovieDetailsPage.module.css';
 
 const MovieDetailsPage = () => {
