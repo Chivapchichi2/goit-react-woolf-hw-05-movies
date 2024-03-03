@@ -6,17 +6,12 @@ import { useParams } from 'react-router-dom';
 
 const Reviews = () => {
   const { movieId } = useParams();
-  const [page, setPage] = useState(1);
   const [reviews, setReviews] = useState(null);
 
   useEffect(() => {
     const fetchReviews = async () => {
       try {
-        const response = await api.getMovieById(
-          movieId,
-          '/reviews',
-          `&page=${page}`
-        );
+        const response = await api.getMovieById(movieId, '/reviews');
         setReviews(response.data.results);
       } catch (error) {
         console.error('Error fetching reviews:', error);
@@ -24,7 +19,7 @@ const Reviews = () => {
     };
 
     fetchReviews();
-  }, [movieId, page]);
+  }, [movieId]);
 
   return (
     <ul className={styles.Reviews}>
