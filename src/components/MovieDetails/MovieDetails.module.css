@@ -1,0 +1,65 @@
+.MovieDetails {
+  display: flex;
+  border-bottom: 2px solid #4caf50;
+  margin-bottom: 20px;
+  font-size: 1.5rem;
+  line-height: 1.5;
+}
+
+.Section {
+  width: 55%;
+  margin-left: auto;
+  padding-right: 20px;
+  padding-left: 20px;
+  display: flex;
+  align-items: flex-start;
+  flex-direction: column;
+  text-align: start;
+  border-left: 1px dashed #4caf50;
+}
+
+.ImageBox {
+  width: 500px;
+}
+
+.Image {
+  border-radius: 10px;
+  overflow: hidden;
+}
+
+.List {
+  margin: 0;
+  padding: 0;
+}
+
+.Title {
+  margin: 0;
+  font-weight: 700;
+}
+
+.Tagline {
+  margin: 0 0 10px;
+  font-weight: 400;
+  font-style: italic;
+}
+
+.Vote {
+  display: flex;
+  justify-content: space-around;
+}
+
+.Span {
+  font-weight: 700;
+}
+
+.good {
+  color: #4caf50;
+}
+
+.norm {
+  color: #6e6e23;
+}
+
+.bad {
+  color: #d555ad;
+}

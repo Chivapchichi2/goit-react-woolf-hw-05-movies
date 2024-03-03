@@ -1,0 +1,14 @@
+.Reviews {
+  line-height: 1.4;
+  text-align: start;
+  padding: 0 20px;
+}
+
+.ListItem {
+  border-bottom: 1px solid #4caf50;
+}
+
+.Author {
+  font-weight: 700;
+  font-size: 1.2rem;
+}

@@ -1,0 +1,30 @@
+.Button {
+  padding: 12px 24px;
+  border-radius: 8px;
+  margin: 10px;
+  background-color: #4caf50;
+  transition: all 0.3s ease;
+  text-align: center;
+  display: inline-block;
+  color: #fff;
+  border: none;
+  text-decoration: none;
+  cursor: pointer;
+  font-family: 'Roboto', sans-serif;
+  font-size: 16px;
+  font-weight: 500;
+  min-width: 180px;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+}
+
+.Button:hover:not([disabled]),
+.Button:focus {
+  background-color: #388e3c;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+}
+
+.Button:disabled {
+  color: rgba(0, 0, 0, 0.38);
+  background-color: #bdbdbd;
+  cursor: not-allowed;
+}

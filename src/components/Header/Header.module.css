@@ -1,0 +1,32 @@
+.Header {
+  height: 50px;
+  border-bottom: 2px solid #4caf50; /* Основной цвет для границы */
+  margin-bottom: 10px;
+  box-shadow: 0 2px 5px 0 rgba(76, 175, 80, 0.5); /* Основной цвет для тени */
+}
+
+.List {
+  display: flex;
+  height: inherit;
+  margin: 0;
+  padding: 0;
+  justify-content: center;
+  align-items: center;
+}
+
+.NavLink {
+  display: inline-block;
+  font-size: 1.5rem;
+  font-weight: 700;
+  padding: 12px 24px; /* Обновленные отступы для соответствия стилю кнопок */
+  margin: 0 0 0 7px;
+  color: #4caf50; /* Основной цвет текста */
+  text-decoration: none; /* Убрано подчеркивание */
+  cursor: pointer; /* Изменен курсор */
+  transition: transform 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.Header .NavLink:hover,
+.Header .NavLink:focus {
+  transform: scale(1.1);
+}
