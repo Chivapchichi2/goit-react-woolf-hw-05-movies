@@ -53,7 +53,6 @@ const MovieDetailsPage = () => {
     overview,
     vote_average: average,
     vote_count: count,
-    id,
   } = movie;
 
   return (
