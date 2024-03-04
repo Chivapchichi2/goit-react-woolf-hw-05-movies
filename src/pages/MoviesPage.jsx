@@ -32,7 +32,7 @@ const MoviesPage = () => {
     };
 
     fetchMovies();
-  }, [searchParams]);
+  }, [searchParams, query, page]);
 
   const handleOnButtonClick = newPage => () => {
     setSearchParams({ query, page: newPage });
