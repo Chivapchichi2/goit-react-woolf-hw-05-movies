@@ -21,25 +21,16 @@ const MovieDetailsPage = lazy(
 
 const App = () => (
   <Container>
-    <Header />
     <Suspense fallback={<Loader />}>
       <Routes>
-        <Route
-          exact
-          path="/goit-react-woolf-hw-05-movies/"
-          element={<HomePage />}
-        />
-        <Route
-          path="/goit-react-woolf-hw-05-movies/movies/:movieId"
-          element={<MovieDetailsPage />}
-        >
-          <Route path={`cast`} element={<Cast />} />
-          <Route path={`review`} element={<Reviews />} />
+        <Route path="/" element={<Header />}>
+          <Route index element={<HomePage />} />
+          <Route path="movies" element={<MoviesPage />} />
+          <Route path="movies/:movieId" element={<MovieDetailsPage />}>
+            <Route path="cast" element={<Cast />} />
+            <Route path="review" element={<Reviews />} />
+          </Route>
         </Route>
-        <Route
-          path="/goit-react-woolf-hw-05-movies/movies"
-          element={<MoviesPage />}
-        />
       </Routes>
     </Suspense>
   </Container>

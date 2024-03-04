@@ -6,12 +6,7 @@ const MoviesGalleryItem = ({ poster, title, vote, id }) => {
 
   return (
     <li className={styles.MoviesGalleryItem}>
-      <Link
-        to={`/goit-react-woolf-hw-05-movies/movies/${id}`}
-        state={{
-          from: location,
-        }}
-      >
+      <Link to={`/movies/${id}`} state={location}>
         <img
           src={
             poster

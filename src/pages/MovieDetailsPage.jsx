@@ -1,4 +1,4 @@
-import { useState, useEffect } from 'react';
+import { useState, useEffect, useRef } from 'react';
 import {
   NavLink,
   useParams,
@@ -19,9 +19,8 @@ const MovieDetailsPage = () => {
   const { movieId } = useParams();
   const location = useLocation();
   const navigate = useNavigate();
-  const { from } = location.state || {
-    from: { pathname: '/goit-react-woolf-hw-05-movies/' },
-  };
+  const from = location.state || '/';
+  const fromRef = useRef(from);
 
   useEffect(() => {
     const fetchMovie = async () => {
@@ -40,7 +39,7 @@ const MovieDetailsPage = () => {
   }, [movieId]);
 
   const handleButtonClick = () => {
-    navigate(from);
+    navigate(fromRef.current);
   };
 
   const {
@@ -81,8 +80,8 @@ const MovieDetailsPage = () => {
         <li>
           <NavLink
             to={{
-              pathname: `/goit-react-woolf-hw-05-movies/movies/${movieId}/cast`,
-              state: { from },
+              pathname: `/movies/${movieId}/cast`,
+              state: fromRef.current,
             }}
             className={styles.NavLink}
           >
@@ -92,8 +91,8 @@ const MovieDetailsPage = () => {
         <li>
           <NavLink
             to={{
-              pathname: `/goit-react-woolf-hw-05-movies/movies/${movieId}/review`,
-              state: { from },
+              pathname: `/movies/${movieId}/review`,
+              state: fromRef.current,
             }}
             className={styles.NavLink}
           >
@@ -101,7 +100,7 @@ const MovieDetailsPage = () => {
           </NavLink>
         </li>
       </ul>
-      {id && <Outlet />}
+      <Outlet />
     </>
   );
 };

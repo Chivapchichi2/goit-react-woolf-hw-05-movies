@@ -1,5 +1,5 @@
 import { useState, useEffect } from 'react';
-import { useLocation, useNavigate } from 'react-router-dom';
+import { useSearchParams } from 'react-router-dom';
 import api from '../services/moviesApi';
 import Button from '../components/Button';
 import MoviesGallery from '../components/MoviesGallery';
@@ -9,23 +9,11 @@ import SearchBar from '../components/Searchbar';
 
 const MoviesPage = () => {
   const [movies, setMovies] = useState([]);
-  const [page, setPage] = useState(1);
   const [error, setError] = useState('');
   const [loader, setLoader] = useState(false);
-  const [query, setQuery] = useState('');
-  const location = useLocation();
-  const navigate = useNavigate();
-
-  useEffect(() => {
-    const searchParams = new URLSearchParams(location.search);
-    const searchQuery = searchParams.get('query');
-    const searchPage = parseInt(searchParams.get('page')) || 1;
-
-    if (searchQuery) {
-      setQuery(searchQuery);
-      setPage(searchPage);
-    }
-  }, [location.search]);
+  const [searchParams, setSearchParams] = useSearchParams();
+  const query = searchParams.get('query');
+  const page = parseInt(searchParams.get('page')) || 1;
 
   useEffect(() => {
     const fetchMovies = async () => {
@@ -34,7 +22,7 @@ const MoviesPage = () => {
         try {
           const fetchedMovies = await api.getByQueryMovies(query, page);
           setMovies(fetchedMovies);
-          navigate(`?query=${query}&page=${page}`);
+          window.scrollTo({ top: 0, behavior: 'smooth' });
         } catch (err) {
           setError(err);
         } finally {
@@ -44,27 +32,16 @@ const MoviesPage = () => {
     };
 
     fetchMovies();
-  }, [query, page, navigate]);
+  }, [searchParams]);
 
   const handleOnButtonClick = newPage => () => {
-    setLoader(true);
-    api
-      .getByQueryMovies(query, newPage)
-      .then(fetchedMovies => {
-        setMovies(fetchedMovies);
-        setPage(newPage);
-        navigate(`?query=${query}&page=${newPage}`);
-        window.scrollTo({ top: 0, behavior: 'smooth' });
-      })
-      .catch(err => setError(err))
-      .finally(() => setLoader(false));
+    setSearchParams({ query, page: newPage });
   };
 
   const handleFormData = ({ query }) => {
-    setPage(1);
-    setQuery(query);
     setMovies([]);
     setError('');
+    setSearchParams({ query, page: 1 });
   };
 
   const showButtons = !loader && movies[0];
