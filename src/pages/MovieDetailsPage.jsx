@@ -19,7 +19,9 @@ const MovieDetailsPage = () => {
   const { movieId } = useParams();
   const location = useLocation();
   const navigate = useNavigate();
-  const { from } = location.state || { from: { pathname: '/' } };
+  const { from } = location.state || {
+    from: { pathname: '/goit-react-woolf-hw-05-movies/' },
+  };
 
   useEffect(() => {
     const fetchMovie = async () => {
@@ -79,7 +81,7 @@ const MovieDetailsPage = () => {
         <li>
           <NavLink
             to={{
-              pathname: `/movies/${movieId}/cast`,
+              pathname: `/goit-react-woolf-hw-05-movies/movies/${movieId}/cast`,
               state: { from },
             }}
             className={styles.NavLink}
@@ -90,7 +92,7 @@ const MovieDetailsPage = () => {
         <li>
           <NavLink
             to={{
-              pathname: `/movies/${movieId}/review`,
+              pathname: `/goit-react-woolf-hw-05-movies/movies/${movieId}/review`,
               state: { from },
             }}
             className={styles.NavLink}

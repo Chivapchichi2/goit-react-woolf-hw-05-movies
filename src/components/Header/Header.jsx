@@ -6,12 +6,19 @@ const Header = () => (
     <nav className={styles.Nav}>
       <ul className={styles.List}>
         <li>
-          <NavLink exact="true" to="/" className={styles.NavLink}>
+          <NavLink
+            exact="true"
+            to="/goit-react-woolf-hw-05-movies/"
+            className={styles.NavLink}
+          >
             Home
           </NavLink>
         </li>
         <li>
-          <NavLink to="/movies" className={styles.NavLink}>
+          <NavLink
+            to="/goit-react-woolf-hw-05-movies/movies"
+            className={styles.NavLink}
+          >
             Movies
           </NavLink>
         </li>

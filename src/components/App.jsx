@@ -24,12 +24,22 @@ const App = () => (
     <Header />
     <Suspense fallback={<Loader />}>
       <Routes>
-        <Route exact path="/" element={<HomePage />} />
-        <Route path="/movies/:movieId" element={<MovieDetailsPage />}>
+        <Route
+          exact
+          path="/goit-react-woolf-hw-05-movies/"
+          element={<HomePage />}
+        />
+        <Route
+          path="/goit-react-woolf-hw-05-movies/movies/:movieId"
+          element={<MovieDetailsPage />}
+        >
           <Route path={`cast`} element={<Cast />} />
           <Route path={`review`} element={<Reviews />} />
         </Route>
-        <Route path="/movies" element={<MoviesPage />} />
+        <Route
+          path="/goit-react-woolf-hw-05-movies/movies"
+          element={<MoviesPage />}
+        />
       </Routes>
     </Suspense>
   </Container>
